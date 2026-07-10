@@ -8,8 +8,8 @@
 *   **Frontend:** HTML5, CSS3, JavaScript (Vanilla).
 *   **Microservicios:** Node.js + Express + MySQL2 (Dockerizado para el sistema de reseñas).
 *   **Infraestructura Cloud:** Desplegado en **AWS EC2** (América del Norte).
-    *   🐧 **Servidor 1 (Linux):** Ubuntu 24.04 LTS (Aloja el E-commerce y la Base de Datos).
-    *   🪟 **Servidor 2 (Windows):** Windows Server 2022 (Aloja el servicio de monitoreo de recursos del SO).
+    *   🐧 **Servidor 1 (Linux):** Ubuntu 24.04 LTS (Aloja Docker, Mongodby la Base de Datos).
+    *   🪟 **Servidor 2 (Windows):** Windows Server 2022 (Aloja el E-commerce y el servicio de monitoreo de recursos del SO).
 
 ## 🧠 Conceptos de Sistemas Operativos Aplicados
 
