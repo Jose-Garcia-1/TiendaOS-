@@ -8,7 +8,7 @@
 *   **Frontend:** HTML5, CSS3, JavaScript (Vanilla).
 *   **Microservicios:** Node.js + Express + MySQL2 (Dockerizado para el sistema de reseñas).
 *   **Infraestructura Cloud:** Desplegado en **AWS EC2** (América del Norte).
-    *   🐧 **Servidor 1 (Linux):** Ubuntu 24.04 LTS (Aloja Docker, Mongodb y la Base de Datos).
+    *   🐧 **Servidor 1 (Linux):** Ubuntu 24.04 LTS (Aloja Docker, MongoDB y la Base de Datos).
     *   🪟 **Servidor 2 (Windows):** Windows Server 2022 (Aloja el E-commerce y el servicio de monitoreo de recursos del SO).
 
 ## 🧠 Conceptos de Sistemas Operativos Aplicados
@@ -41,10 +41,25 @@ Este proyecto destaca por la integración de conceptos fundamentales de Sistemas
 *   ✅ **Panel Administrativo:** CRUD de productos, gestión de roles de usuarios y **Monitoreo de Recursos del SO** (Linux + Windows).
 *   ✅ **Sistema de Reseñas:** Servicio desplegado en contenedor Docker, validación de compras previas y calificación con estrellas.
 
-## 🚀 Despliegue (Entorno Cloud)
+## ⚙️ Configuración e Instalación (Archivo de Base de Datos)
 
-El sistema fue desplegado en **AWS EC2** utilizando el modelo de 3 capas (Presentación, Aplicación y Datos). Ambas instancias utilizan el tipo `t3.micro` (Free Tier) y se comunican entre sí a través de sus respectivas IPs privadas/públicas dentro de la misma VPC y grupo de seguridad.
+Por seguridad, el archivo real de conexión a la base de datos (`db.php` o `config/db.php`) **no está subido a este repositorio**, ya que contiene credenciales sensibles (usuario, contraseña y host). Para que el sistema funcione en tu entorno local o en la nube:
 
----
+1.  Dentro de la carpeta raíz del proyecto (o dentro de `config/`), crea un archivo nuevo llamado **`db.php`**.
+2.  Utiliza el siguiente código de ejemplo (ajustando los valores según tu propia base de datos MySQL):
 
-⭐ *Proyecto desarrollado para el curso de Sistemas Operativos.*
+```php
+<?php
+$host = 'localhost';       // Servidor de la base de datos (IP o localhost)
+$user = 'tu_usuario_mysql'; // Usuario de MySQL
+$pass = 'tu_contraseña';    // Contraseña de MySQL
+$dbname = 'tiendaos_db';    // Nombre de la base de datos
+
+// Crear conexión
+$conn = new mysqli($host, $user, $pass, $dbname);
+
+// Verificar conexión
+if ($conn->connect_error) {
+    die("Conexión fallida: " . $conn->connect_error);
+}
+?>
